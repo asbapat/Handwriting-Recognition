@@ -17,7 +17,7 @@ def load_mnist():
 
     training_inputs = [np.reshape(x, (784, 1)) for x in training_data[0]]
     training_results = [vectorized_result(y) for y in training_data[1]]
-    training_data = zip(training_inputs, training_results)
+    training_data_reshaped = zip(training_inputs, training_results)
 
     validation_inputs = [np.reshape(x, (784, 1)) for x in validation_data[0]]
     validation_results = validation_data[1]
@@ -25,7 +25,8 @@ def load_mnist():
 
     test_inputs = [np.reshape(x, (784, 1)) for x in test_data[0]]
     test_data = zip(test_inputs, test_data[1])
-    return training_data, validation_data, test_data
+
+    return training_data_reshaped, validation_data, test_data ,training_data
 
 
 def vectorized_result(y):
